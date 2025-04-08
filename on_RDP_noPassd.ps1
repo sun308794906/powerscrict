@@ -22,10 +22,10 @@ netstat -an | Select-String "3389"
 # 8.获取当前主机名对应的所有 IP 地址
 $ips = [System.Net.Dns]::GetHostAddresses($env:COMPUTERNAME) | Where-Object { $_.AddressFamily -eq [System.Net.Sockets.AddressFamily]::InterNetwork }
 foreach ($ip in $ips) {
-    Write-Output "本地 IP 地址：$ip"
+    Write-Output "local IP address：$ip"
 }
 
 # 获取的是 Windows 实际认证的用户名
 $username = $env:UserName
-Write-Output "当前用户名: $username"
+Write-Output "Current username: $username"
 
